@@ -181,7 +181,7 @@ def main():
         
         logger.info("")
         logger.info("=" * 60)
-        logger.info("✅ Extraction Complete!")
+        logger.info("Extraction Complete!")
         logger.info(f"Total nodes processed: {handler.stats['nodes']:,}")
         logger.info(f"Total ways processed: {handler.stats['ways']:,}")
         logger.info(f"Total relations processed: {handler.stats['relations']:,}")
@@ -190,7 +190,7 @@ def main():
         logger.info("")
         
         # Save administrative boundaries
-        logger.info("💾 Saving administrative boundaries...")
+        logger.info("Saving administrative boundaries...")
         admin_file = OUTPUT_DIR / "turkey_administrative.json"
         with open(admin_file, 'w', encoding='utf-8') as f:
             json.dump({
@@ -202,7 +202,7 @@ def main():
         
         # Save streets by city
         logger.info("")
-        logger.info("💾 Saving streets by city...")
+        logger.info("Saving streets by city...")
         total_streets = 0
         for city, streets in handler.streets.items():
             if streets:  # Only save if we have data
@@ -221,7 +221,7 @@ def main():
         
         # Save POIs by city and category
         logger.info("")
-        logger.info("💾 Saving POIs by city...")
+        logger.info("Saving POIs by city...")
         total_pois = 0
         for city, categories in handler.pois.items():
             if categories:  # Only save if we have data
@@ -245,7 +245,7 @@ def main():
         
         # Save summary
         logger.info("")
-        logger.info("💾 Saving extraction summary...")
+        logger.info("Saving extraction summary...")
         summary_file = OUTPUT_DIR / "extraction_summary.json"
         with open(summary_file, 'w', encoding='utf-8') as f:
             json.dump({
@@ -271,12 +271,12 @@ def main():
         
         logger.info("")
         logger.info("=" * 60)
-        logger.info("🎉 ALL DONE!")
-        logger.info(f"📊 Final Stats:")
+        logger.info("ALL DONE!")
+        logger.info(f"Final Stats:")
         logger.info(f"   - Streets: {total_streets:,}")
         logger.info(f"   - POIs: {total_pois:,}")
         logger.info(f"   - Cities: {len(handler.streets)}")
-        logger.info(f"📁 Output directory: {OUTPUT_DIR}")
+        logger.info(f"Output directory: {OUTPUT_DIR}")
         logger.info("=" * 60)
         
     except Exception as e:

@@ -165,10 +165,10 @@ def save_hierarchy(hierarchy, output_file):
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(result, f, ensure_ascii=False, indent=2)
     
-    logger.info(f"✅ Saved {total_streets:,} streets in {len(output)} provinces")
+    logger.info(f"Saved {total_streets:,} streets in {len(output)} provinces")
     
     # Print summary
-    logger.info("\n📊 Hierarchy Summary:")
+    logger.info("\nHierarchy Summary:")
     for province in sorted(output.keys()):
         street_count = sum(
             len(streets) 
@@ -179,7 +179,7 @@ def save_hierarchy(hierarchy, output_file):
 
 def main():
     """Main process"""
-    logger.info("🗺️  Building Address Hierarchy")
+    logger.info("Building Address Hierarchy")
     logger.info("=" * 60)
     
     # File paths
@@ -202,7 +202,7 @@ def main():
     streets = load_streets(streets_file)
     
     # Build hierarchy (process subset for speed - can change to process all)
-    logger.info("\n⚠️  Processing first 50,000 streets as a sample...")
+    logger.info("\nProcessing first 50,000 streets as a sample...")
     logger.info("   (Change code to process all 394K streets - takes longer)")
     sample_streets = streets[:50000]  # Change to streets to process all
     
@@ -212,8 +212,8 @@ def main():
     save_hierarchy(hierarchy, output_file)
     
     logger.info("\n" + "=" * 60)
-    logger.info("🎉 DONE!")
-    logger.info(f"📁 Output saved to: {output_file}")
+    logger.info("DONE!")
+    logger.info(f"Output saved to: {output_file}")
     logger.info("=" * 60)
 
 if __name__ == "__main__":

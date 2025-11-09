@@ -58,7 +58,7 @@ def check_ai_files():
                 match_str = str(match).replace('\\', '/')
                 if any(exc in match_str for exc in EXCEPTIONS):
                     continue
-                found_issues.append(f"  ⚠️  AI-generated file: {match}")
+                found_issues.append(f"AI-generated file: {match}")
     
     return found_issues
 
@@ -72,7 +72,7 @@ def check_forbidden_files():
         if matches:
             for match in matches:
                 if not any(part.startswith('.git') or part.startswith('.venv') for part in match.parts):
-                    found_issues.append(f"  ❌ Forbidden file: {match}")
+                    found_issues.append(f"Forbidden file: {match}")
     
     return found_issues
 
@@ -97,7 +97,7 @@ def check_large_files():
 
 def main():
     """Run all pre-commit checks"""
-    print("🔍 Running pre-commit checks...\n")
+    print("Running pre-commit checks...\n")
     
     all_issues = []
     
@@ -119,14 +119,14 @@ def main():
     print()
     
     if all_issues:
-        print("❌ Issues found:\n")
+        print("Issues found:\n")
         for issue in all_issues:
             print(issue)
-        print("\n💡 Please fix these issues before committing.")
+        print("\nPlease fix these issues before committing.")
         print("   Add them to .gitignore or remove them from the repository.\n")
         return 1
     else:
-        print("✅ All checks passed! Safe to commit.\n")
+        print("All checks passed! Safe to commit.\n")
         return 0
 
 if __name__ == "__main__":
